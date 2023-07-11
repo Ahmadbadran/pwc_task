@@ -78,7 +78,7 @@ export const Map = () => {
             <div>
               <GoogleMap
                 onLoad={handleMapLoad}
-                mapContainerStyle={{ width: "100%", height: "500px" }}
+                mapContainerStyle={{ width: "100%", height: "450px" }}
                 center={{ lat: latitude, lng: longitude }}
                 zoom={15}
                 onClick={handleMapClick}
@@ -87,16 +87,20 @@ export const Map = () => {
                   <Marker key={markerKey} position={markerPosition} />
                 )}
               </GoogleMap>
-              <div>
+              <div className="mt-2">
                 Selected Location:{" "}
                 {`${selectedLocation} ,${latitude},${longitude}`}
               </div>
-              <h3>Please enter a place name</h3>
+              <h3 className="mt-2">Please enter a place name</h3>
               <Autocomplete
                 onLoad={handleAutocompleteLoad}
                 onPlaceChanged={handlePlaceSelect}
               >
-                <Input type="text" placeholder="Enter your location" />
+                <Input
+                  type="text"
+                  placeholder="Enter your location"
+                  className="w-auto border-2 border-sky-500 rounded-md mb-2"
+                />
               </Autocomplete>
             </div>
           </div>
